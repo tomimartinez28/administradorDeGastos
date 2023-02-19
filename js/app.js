@@ -142,6 +142,8 @@ class UI{
 
         if(restante <= 0){
             formulario.querySelector("button[type='submit']").disabled = true;
+        } else {
+            formulario.querySelector("button[type='submit']").disabled = false;
         }
 
     }
