@@ -2,12 +2,14 @@
 
 const formulario = document.querySelector('#agregar-gasto');
 const gastoListado = document.querySelector('#gastos ul');
+const modalForm = document.querySelector('.modal-body form')
+
 
 // EVENTOS
 
 cargarEventListeners();
 function cargarEventListeners() {
-    document.addEventListener('DOMContentLoaded', pedirPresupuesto);
+    modalForm.addEventListener('submit', pedirPresupuesto);
     formulario.addEventListener('submit', agregarGasto);
 }
 
@@ -140,7 +142,7 @@ class UI{
         
         // si el total es 0 o menor
 
-        if(restante <= 0){
+        if(restante <= 0 || typeof presupuesto != "undefined" ){
             formulario.querySelector("button[type='submit']").disabled = true;
         } else {
             formulario.querySelector("button[type='submit']").disabled = false;
@@ -164,15 +166,19 @@ const ui = new UI();
 // FUNCIONES
 let presupuesto;
 
-function pedirPresupuesto() {
-    const presupuestoUsuario = prompt('Cual es tu presupuesto?')
+function pedirPresupuesto(e) {
+    e.preventDefault();
+
+    const presupuestoUsuario = document.querySelector('.modal-body form input').value
+    
+/* 
     if(presupuestoUsuario === 0 || presupuestoUsuario === null || isNaN(presupuestoUsuario) || presupuestoUsuario <= 0){
-        window.location.reload();
-    }
+        
+    } */
     presupuesto = new Presupuesto(presupuestoUsuario);
 
-
-    ui.insertarPresupuesto(presupuesto)
+    
+    ui.insertarPresupuesto(presupuesto);
 }
 
 function agregarGasto(e){
