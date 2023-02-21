@@ -142,7 +142,7 @@ class UI{
         
         // si el total es 0 o menor
 
-        if(restante <= 0 || typeof presupuesto != "undefined" ){
+        if(restante <= 0){
             formulario.querySelector("button[type='submit']").disabled = true;
         } else {
             formulario.querySelector("button[type='submit']").disabled = false;
@@ -177,8 +177,9 @@ function pedirPresupuesto(e) {
     } */
     presupuesto = new Presupuesto(presupuestoUsuario);
 
-    
     ui.insertarPresupuesto(presupuesto);
+    presupuesto.calcularRestante()
+    ui.comprobarPresupuesto(presupuesto);
 }
 
 function agregarGasto(e){

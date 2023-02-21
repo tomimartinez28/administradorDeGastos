@@ -1,7 +1,7 @@
 body {
     background: #000428;  /* fallback for old browsers */
 background: -webkit-linear-gradient(to right, #004e92, #000428);  
-background: linear-gradient(to right, #004e92, #000428); 
+background-color: #0d0f36; 
 }
 header {
     margin: 30px 0;
@@ -43,3 +43,14 @@ h2 {
     border-radius: 50px;
 
 }
+
+.btn.agregar, .btn.indicar-presupuesto {
+    background-color:#294380;
+    color: #f1f6ce;
+}
+
+.btn.agregar:hover, .btn.indicar-presupuesto:hover {
+    background-color: #b9f1d6;
+    color: #294380;
+}
+
