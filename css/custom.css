@@ -44,7 +44,7 @@ h2 {
 
 }
 
-.btn.agregar, .btn.indicar-presupuesto {
+.btn.agregar, .btn.indicar-presupuesto   {
     background-color:#294380;
     color: #f1f6ce;
 }
